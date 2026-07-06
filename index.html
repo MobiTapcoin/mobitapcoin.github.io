@@ -1,164 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MobiTapcoin - Tap to Earn</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            background-color: #0a0a0a;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            user-select: none; /* Prevents text highlighting while tapping */
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-        }
-        #tap-button {
-            width: 220px;
-            height: 220px;
-            background: linear-gradient(145deg, #00ff00, #008800);
-            border-radius: 50%;
-            margin: 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: black;
-            cursor: pointer;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
-            border: 8px solid #1a1a1a;
-            transition: transform 0.1s;
-        }
-        #tap-button:active {
-            transform: scale(0.95);
-        }
-        .card {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #333;
-        }
-        .task-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #222;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        .btn-action {
-            background: #0088cc;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receive International Payments Easily</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#222;
+}
+
+header{
+background:linear-gradient(135deg,#0f172a,#2563eb);
+color:white;
+padding:80px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+header p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+line-height:1.6;
+}
+
+.button{
+display:inline-block;
+margin-top:30px;
+padding:15px 35px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+font-size:20px;
+border-radius:10px;
+font-weight:bold;
+transition:.3s;
+}
+
+.button:hover{
+background:#16a34a;
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#2563eb;
+}
+
+.steps{
+background:white;
+padding:40px;
+border-radius:15px;
+margin-top:40px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+.steps li{
+margin:15px 0;
+font-size:18px;
+}
+
+footer{
+background:#111827;
+color:white;
+padding:40px;
+text-align:center;
+margin-top:60px;
+}
+
+footer a{
+color:#22c55e;
+text-decoration:none;
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <h1 style="color: #00ff00; margin-bottom: 5px;">MOBITAP COIN</h1>
-    <p style="color: #888; font-size: 14px; margin-top: 0;">Asia & Africa's Rewards Portal</p>
+<header>
 
-    <div class="card">
-        <p style="color: #888; font-size: 14px; margin: 0;">MobiTap Balance</p>
-        <h2 style="color: #00ff00; font-size: 42px; margin: 10px 0;">
-            <span id="balance">0</span> <small style="font-size: 16px;">MC</small>
-        </h2>
-        
-        <div style="width: 100%; background: #333; height: 10px; border-radius: 5px;">
-            <div id="progress-bar" style="width: 0%; background: #00ff00; height: 100%; border-radius: 5px; transition: 0.3s;"></div>
-        </div>
-        <p style="font-size: 12px; color: #666; margin-top: 8px;">Min. Withdrawal: 5,000 MC</p>
+<h1>Receive International Payments with Ease</h1>
 
-        <button onclick="requestWithdrawal()" id="withdraw-btn" style="width: 100%; margin-top: 15px; background: #333; color: #666; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: not-allowed;">
-            WITHDRAW FUNDS
-        </button>
-    </div>
+<p>
+Looking for a simple way to receive USD, GBP, and EUR payments?
+Grey helps freelancers, remote workers, and online entrepreneurs receive international payments from around the world.
+</p>
 
-    <div id="tap-button" onclick="handleTap()">TAP</div>
+<a class="button" href="https://greyapp.page.link/jixhVD5wH6mdykEY7 target="_blank">
+Join Grey Today
+</a>
 
-    <div class="card" style="text-align: left;">
-        <h3 style="margin-top: 0;">Earn Extra MC</h3>
-        
-        <div class="task-row">
-            <div>
-                <p style="margin: 0; font-weight: bold; color: #00ff00;">Join Telegram</p>
-                <p style="margin: 0; font-size: 12px; color: #888;">+500 MC</p>
-            </div>
-            <button class="btn-action" onclick="doTask('tg', 500)">Join</button>
-        </div>
+</header>
 
-        <div class="task-row">
-            <div>
-                <p style="margin: 0; font-weight: bold; color: #ff00ff;">Watch Bonus Ad</p>
-                <p style="margin: 0; font-size: 12px; color: #888;">+200 MC</p>
-            </div>
-            <button class="btn-action" style="background: #ff00ff;" onclick="doTask('ad', 200)">Watch</button>
-        </div>
-    </div>
+<section>
 
-    <footer style="font-size: 12px; color: #444; margin-top: 30px;">
-        <p>&copy; 2026 MobiTapcoin Global</p>
-        <a href="privacy-policy.html" style="color: #666;">Privacy Policy</a>
-    </footer>
+<h2 style="text-align:center;font-size:35px;">
+Why Choose Grey?
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌍 Global Accounts</h3>
+<p>Receive payments in multiple currencies through virtual international accounts.</p>
 </div>
 
-<script>
-    let coins = 0;
-    const minWithdrawal = 5000;
+<div class="card">
+<h3>⚡ Fast Transfers</h3>
+<p>Move money quickly and manage your international payments in one place.</p>
+</div>
 
-    function handleTap() {
-        coins += 1;
-        updateUI();
-    }
+<div class="card">
+<h3>💼 Built for Freelancers</h3>
+<p>Perfect for creators, developers, remote workers and online businesses.</p>
+</div>
 
-    function updateUI() {
-        document.getElementById('balance').innerText = coins.toLocaleString();
-        
-        let percentage = (coins / minWithdrawal) * 100;
-        if (percentage > 100) percentage = 100;
-        document.getElementById('progress-bar').style.width = percentage + "%";
-        
-        if (coins >= minWithdrawal) {
-            let btn = document.getElementById('withdraw-btn');
-            btn.style.background = "#00ff00";
-            btn.style.color = "#000";
-            btn.style.cursor = "pointer";
-            btn.innerText = "WITHDRAW NOW";
-        }
-    }
+<div class="card">
+<h3>🔒 Secure</h3>
+<p>Your transactions are protected using modern security practices.</p>
+</div>
 
-    function doTask(type, reward) {
-        if (type === 'tg') {
-            window.open('https://t.me/YOUR_BOT_USERNAME', '_blank'); // Change this to your link
-        }
-        coins += reward;
-        updateUI();
-        alert("Task Completed! You earned " + reward + " MC");
-    }
+</div>
 
-    function requestWithdrawal() {
-        if (coins < minWithdrawal) {
-            alert("Keep tapping! You need " + (minWithdrawal - coins) + " more MC.");
-        } else {
-            alert("Request Received! Please contact support in the Telegram Bot to finalize your payment.");
-        }
-    }
-</script>
+<div class="steps">
+
+<h2>Getting Started</h2>
+
+<ol>
+
+<li>Create your Grey account.</li>
+
+<li>Complete any required verification steps.</li>
+
+<li>Receive your international account details (where available).</li>
+
+<li>Start receiving payments from supported countries.</li>
+
+</ol>
+
+<center>
+
+<a class="button" href=https://greyapp.page.link/jixhVD5wH6mdykEY7 target="_blank">
+Create Your Free Account
+</a>
+
+</center>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>Ready to Get Started?</h2>
+
+<p>
+Use my referral link below to sign up for Grey.
+</p>
+
+<br>
+
+<a href="YOUR_GREY_REFERRAL_LINK" target="_blank">
+Join Grey Now
+</a>
+
+<br><br>
+
+<p style="font-size:14px;color:#aaa;">
+This website is independent and is not the official Grey website. Features and eligibility may vary by country. Please review Grey's terms and referral program conditions before signing up.
+</p>
+
+</footer>
 
 </body>
 </html>
